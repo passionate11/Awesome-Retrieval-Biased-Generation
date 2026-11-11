@@ -63,6 +63,8 @@ Depending on how the text distribution is influenced across deep neural network 
 | [**Pre-Inference Query Rewriting**](docs/query_rewriting.md) | **Profile:** Modifies data before the primary generation loop. An auxiliary parser reads the user's intent, converts it into a highly structured, keyword-dense query array, and pulls data. It then reformats the entire prompt structure to frame the retrieved text as an absolute truth matrix. | 2023 | [Ma et al., 2023](https://arxiv.org/abs/2305.14283) |
 | [**In-Context Attention Rescaling**](docs/attention_rescaling.md) | **Profile:** Operates within the self-attention blocks of the Transformer. The mask is calibrated to dynamically amplify the attention weights assigned to the position embeddings of the retrieved document chunks, forcing deep layers to prioritize the fetched data tokens. | 2023 | [Tworkowski et al., 2023](https://arxiv.org/abs/2307.03170) |
 | [**Post-Hoc Verification Reranking**](docs/verification_reranking.md) | **Profile:** The language model generates $N$ alternative candidate answers simultaneously. A secondary, highly specialized value network or a cross-encoder evaluates all $N$ options, filtering out any response that displays parametric drift. | 2019 | [Nogueira & Cho, 2019](https://arxiv.org/abs/1903.07666) |
+| **FFN Suppression (ParamMute)** | **Profile:** Suppresses unfaithfulness-associated mid-to-deep feed-forward network activations and calibrates the model toward retrieved evidence when contextual and parametric knowledge conflict. | 2025 | [Huang et al., 2025](https://arxiv.org/abs/2502.15543) |
+| **Adaptive FFN Participation (SPARK)** | **Profile:** Learns a lightweight participation policy that adaptively scales FFN contributions at each decoding step while keeping the backbone frozen, controlling the influence of parametric knowledge on generation. | 2026 | [Li et al., 2026](https://arxiv.org/abs/2606.27786) |
 
 ---
 
@@ -94,6 +96,8 @@ Enforcing severe context bias across high-volume commercial pipelines changes th
 4. Shuster, K., et al. (2021). Retrieval augmentation reduces hallucination in conversation. *arXiv preprint arXiv:2104.07567*.
 5. Asai, A., et al. (2023). Self-RAG: Learning to retrieve, generate, and critique through self-reflection. *arXiv preprint arXiv:2310.11511*.
 6. Gao, L., et al. (2024). Active retrieval augmented generation. *International Conference on Learning Representations (ICLR)*.
+7. Huang, P., et al. (2025). [ParamMute: Suppressing Knowledge-Critical FFNs for Faithful Retrieval-Augmented Generation](https://arxiv.org/abs/2502.15543). *Advances in Neural Information Processing Systems (NeurIPS)*.
+8. Li, R., et al. (2026). [SPARK: Adaptive Parametric Knowledge Participation for Faithful Retrieval-Augmented Generation](https://arxiv.org/abs/2606.27786). *arXiv preprint arXiv:2606.27786*.
 
 ---
 
